@@ -174,3 +174,21 @@ footer {
     padding: 20px;
     color: #6b7280;
 }
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+        order: -1;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}
