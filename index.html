@@ -4,80 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riss AI | AI Assistant</title>
-
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <div class="container header-content">
-        <div class="logo">
-            <div class="logo-icon">R</div>
-            <div>
-                <div class="logo-text">Riss AI</div>
-                <div class="logo-sub">Intelligent Assistant</div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">R</div>
+                    <div>
+                        <div class="logo-text">Riss AI</div>
+                        <div class="logo-sub">Intelligent Assistant</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; color: #10b981; font-size: 13px; font-weight: 500;">
+                    <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
+                    <span>Online</span>
+                </div>
             </div>
         </div>
-        <div class="status">
-            <span class="dot"></span> Online
-        </div>
-    </div>
-</header>
+    </header>
 
-<div class="container">
-    <div class="main-content">
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Chat Container -->
+            <div class="chat-container">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <h1>Riss AI Assistant</h1>
+                    <p>Ask anything and get intelligent, helpful responses</p>
+                </div>
 
-        <div class="chat-container">
-            <div class="chat-header">
-                <h1>Riss AI Assistant</h1>
-                <p>Ask anything and get intelligent, helpful responses</p>
-            </div>
-
-            <div class="messages-area" id="messagesArea">
-                <div class="message ai">
-                    <div class="message-header">
-                        <i class="fas fa-robot"></i> Riss AI
+                <!-- Messages Area -->
+                <div class="messages-area" id="messagesArea">
+                    <!-- Initial greeting -->
+                    <div class="message ai">
+                        <div class="message-header">
+                            <i class="fas fa-robot"></i>
+                            <span>Riss AI</span>
+                        </div>
+                        <div class="message-content">
+                            Hello! I'm Riss AI, ready to assist you. You can change the API endpoint in settings if needed. What would you like to know?
+                        </div>
+                        <div class="message-time">Just now</div>
                     </div>
-                    <div class="message-content">
-                        Hello! I'm Riss AI, ready to assist you.
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <div class="input-container">
+                        <textarea 
+                            class="text-input" 
+                            id="messageInput" 
+                            placeholder="Type your message here..." 
+                            rows="1"
+                            oninput="autoResize(this)"
+                        ></textarea>
+                        <button class="send-btn" id="sendButton">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </div>
-                    <div class="message-time">Just now</div>
                 </div>
             </div>
 
-            <div class="input-area">
-                <div class="input-container">
-                    <textarea id="messageInput" class="text-input"
-                        placeholder="Type your message..." rows="1"></textarea>
-                    <button id="sendButton" class="send-btn">
-                        <i class="fas fa-paper-plane"></i>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Features Card -->
+                <div class="info-card">
+                    <h3><i class="fas fa-star"></i> Capabilities</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Natural conversations</li>
+                        <li><i class="fas fa-check"></i> Code assistance</li>
+                        <li><i class="fas fa-check"></i> Creative writing</li>
+                        <li><i class="fas fa-check"></i> Problem solving</li>
+                        <li><i class="fas fa-check"></i> Multi-language</li>
+                        <li><i class="fas fa-check"></i> Real-time responses</li>
+                    </ul>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="info-card">
+                    <h3><i class="fas fa-bolt"></i> Quick Questions</h3>
+                    <div class="quick-actions">
+                        <button class="action-btn" data-example="Explain machine learning simply">
+                            ML Explain
+                        </button>
+                        <button class="action-btn" data-example="Write a JavaScript function">
+                            JS Code
+                        </button>
+                        <button class="action-btn" data-example="Tell me a creative story">
+                            Story
+                        </button>
+                        <button class="action-btn" data-example="Help me solve a problem">
+                            Problem Solve
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Current API Info -->
+                <div class="info-card">
+                    <h3><i class="fas fa-cog"></i> API Settings</h3>
+                    <p style="color: #6b7280; font-size: 13px; margin-bottom: 10px;">
+                        Current API: <span id="currentApi" style="font-family: monospace; background: #f3f4f6; padding: 2px 6px; border-radius: 4px;">https://api.yupra.my.id/api/ai/ypai?text=</span>
+                    </p>
+                    <button id="toggleConfig" style="width: 100%; padding: 10px; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 8px; color: #4b5563; font-size: 14px; cursor: pointer;">
+                        <i class="fas fa-sliders-h"></i> Change API Endpoint
                     </button>
                 </div>
             </div>
         </div>
-
-        <aside class="sidebar">
-            <div class="info-card">
-                <h3><i class="fas fa-star"></i> Capabilities</h3>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Natural conversation</li>
-                    <li><i class="fas fa-check"></i> Code assistance</li>
-                    <li><i class="fas fa-check"></i> Creative writing</li>
-                </ul>
-            </div>
-        </aside>
-
     </div>
-</div>
 
-<footer>
-    <p>© 2024 Riss AI</p>
-</footer>
+    <!-- API Config Panel -->
+    <div class="config-toggle" id="configToggle">
+        <i class="fas fa-cog"></i>
+    </div>
 
-<script src="script.js"></script>
+    <div class="api-config" id="apiConfig">
+        <h3><i class="fas fa-code"></i> API Configuration</h3>
+        <input type="text" class="api-input" id="apiEndpoint" 
+               placeholder="Enter API endpoint URL" 
+               value="https://api.yupra.my.id/api/ai/ypai?text=">
+        <button class="api-btn" id="saveApiBtn">
+            Save API Endpoint
+        </button>
+        <div style="margin-top: 10px; font-size: 12px; color: #6b7280;">
+            Format: https://example.com/api?text=
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Riss AI | Intelligent Assistant</p>
+            <p style="margin-top: 8px; font-size: 13px; color: #9ca3af;">
+                API: <span id="apiStatus">Connected</span>
+            </p>
+        </div>
+    </footer>
+
+ <script src="script.js"></script>
 </body>
 </html>
