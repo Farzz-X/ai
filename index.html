@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riss AI | AI Assistant</title>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <div class="logo-icon">R</div>
+            <div>
+                <div class="logo-text">Riss AI</div>
+                <div class="logo-sub">Intelligent Assistant</div>
+            </div>
+        </div>
+        <div class="status">
+            <span class="dot"></span> Online
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="main-content">
+
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1>Riss AI Assistant</h1>
+                <p>Ask anything and get intelligent, helpful responses</p>
+            </div>
+
+            <div class="messages-area" id="messagesArea">
+                <div class="message ai">
+                    <div class="message-header">
+                        <i class="fas fa-robot"></i> Riss AI
+                    </div>
+                    <div class="message-content">
+                        Hello! I'm Riss AI, ready to assist you.
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-container">
+                    <textarea id="messageInput" class="text-input"
+                        placeholder="Type your message..." rows="1"></textarea>
+                    <button id="sendButton" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="info-card">
+                <h3><i class="fas fa-star"></i> Capabilities</h3>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Natural conversation</li>
+                    <li><i class="fas fa-check"></i> Code assistance</li>
+                    <li><i class="fas fa-check"></i> Creative writing</li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 Riss AI</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
